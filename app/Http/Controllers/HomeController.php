@@ -1,5 +1,8 @@
 <?php namespace App\Http\Controllers;
 
+use App\Country;
+use Illuminate\Support\Facades\App;
+
 class HomeController extends Controller {
 
 	/*
@@ -20,7 +23,7 @@ class HomeController extends Controller {
 	 */
 	public function __construct()
 	{
-		$this->middleware('auth');
+		//$this->middleware('auth');
 	}
 
 	/**
@@ -30,6 +33,15 @@ class HomeController extends Controller {
 	 */
 	public function index()
 	{
+        $loc = App::getLocale();
+
+        //dd($loc);
+
+        //App::setLocale('es');
+        $country = Country::where('code', 'br')->first();
+        dd($country->name . ' ' . $country->translate('es')->name);
+
+
 		return view('home');
 	}
 
