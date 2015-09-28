@@ -1,7 +1,7 @@
 /vendor
 /node_modules
-.env
 /bootstrap/compiled.php
+/.idea
 .env.*.php
 .env.php
 .env
